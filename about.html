@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Kurt Davenport | Portfolio by Codegrid</title>
+    <meta name="author" content="harrnish @codegrid">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- greensock -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+    <!-- locomotive-scroll -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.2.5/dist/locomotive-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.2.5/dist/locomotive-scroll.min.js"></script>
+</head>
+
+<body id="js-scroll">
+    <div class="wrapper">
+
+        <!-- menu -->
+        <nav class="menu">
+            <div class="menu__logo">
+                <a href="index.html">kd</a>
+            </div>
+            <div class="menu__items">
+                <div class="menu__items-link"><a href="index.html">Projects</a></div>
+                <div class="menu__items-link active"><a href="about.html">About</a></div>
+            </div>
+        </nav>
+
+        <!-- about-section -->
+        <div class="about__container" data-scroll-section>
+            <p class="about__container-data" data-scroll>Hi! My name is <span>Kurt Davenport</span> and I'm a digital
+                designer, born in <span>Malmo,</span> Sweden.</p>
+
+            <p data-scroll>If you have any questions or would like to have a chat, don't hesitate to <span
+                    class="about__container-contact-link"><a href="https://www.youtube.com/codegrid" target="_blank">get
+                        in touch.</a></span></p>
+
+            <p class="about__container-link" data-scroll><a href="https://www.youtube.com/codegrid"
+                    target="_blank">Winner of Webdesign Honorable mention and <br> design excellence</a>.</p>
+        </div>
+
+        <div class="cursor-follow"></div>
+    </div>
+    <script src="js/script.js"></script>
+    <script>
+        // smooth scroll 
+        const scroll = new LocomotiveScroll({
+            el: document.querySelector('#js-scroll'),
+            smooth: true,
+            smoothMobile: true,
+            inertia: 0.75
+        });
+
+        // div following mouse 
+        TweenMax.from(".cursor-follow", 2, {
+            delay: 1,
+            opacity: 0
+        });
+
+        follower = document.querySelector('.cursor-follow');
+
+        posX = 0;
+        posY = 0;
+        mouseX = 0;
+        mouseY = 0;
+
+        TweenMax.to({}, 0.016, {
+            repeat: -1,
+            onRepeat: function () {
+                posX += (mouseX - posX) / 9;
+                posY += (mouseY - posY) / 9;
+
+                TweenMax.set(follower, {
+                    css: {
+                        left: posX - 40,
+                        top: posY - 40,
+                    }
+                });
+            }
+        });
+
+        document.addEventListener("mousemove", function (e) {
+            mouseX = e.pageX;
+            mouseY = e.pageY;
+        });
+    </script>
+</body>
+
+</html>
