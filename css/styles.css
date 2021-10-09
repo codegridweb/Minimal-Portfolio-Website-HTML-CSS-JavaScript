@@ -13,6 +13,7 @@ body {
 }
 
 /* menu */
+
 nav {
     position: fixed !important;
     top: 0;
@@ -20,15 +21,17 @@ nav {
     display: flex;
     justify-content: space-between;
     z-index: 2;
+    background-color: green;
 }
 
 .menu__logo, .menu__items-link {
-    padding: 40px;
+    padding: 20px 20px;
 }
 
 .menu__logo a {
+    cursor: none;
     color: #fff;
-    font-size: 14px;
+    font-size: 34px;
     text-transform: uppercase;
     text-decoration: none;
 }
@@ -39,13 +42,15 @@ nav {
 
 .menu__items-link a {
     color: #fff;
-    font-size: 14px;
+    font-size: 24px;
     font-weight: 400;
     text-decoration: none;
 }
 
 .menu__items-link.active a {
-    text-decoration: underline;
+    background-color: white;
+    color: black;
+    padding: 30px 20px;
 }
 
 /* horizontal scroll items  */
@@ -85,6 +90,12 @@ nav {
 .container__item-title a {
     color: #fff;
     text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.container__item-title a:hover {
+    background-color: green;
 }
 
 .container__item-1 {
@@ -118,12 +129,10 @@ nav {
         height: 200px;
         margin: 50px 100px 20px 80px;
     }
-
     .container__item-header h1 {
         font-size: 30px !important;
         left: -50%;
     }
-
     .container__item h1 {
         font-size: 40px;
         bottom: -20px;
@@ -175,7 +184,6 @@ p.about__container-link {
     width: 300px;
     height: 400px;
     z-index: -1;
- 
     user-select: none;
     pointer-events: none;
     transform: translate(5px, 5px);
@@ -186,7 +194,6 @@ p.about__container-link {
         width: 70%;
         margin: 140px 0 60px 40px;
     }
-
     .cursor-follow {
         display: none;
     }
@@ -203,7 +210,7 @@ p.about__container-link {
     text-align: center;
 }
 
-.project__container-title h1{
+.project__container-title h1 {
     color: #fff;
     font-family: "GrandSlang Roman";
     font-size: 140px;
@@ -283,20 +290,16 @@ p.about__container-link {
     .project__container-title h1 {
         font-size: 40px;
     }
-
     .project__container {
         width: 80%;
     }
-
     .project__container-images {
         width: 100%;
         margin: 0 auto;
     }
-
     .project__image {
         width: 90%;
     }
-
     .project__image-one, .project__image-two, .project__image-three, .project__image-four {
         position: relative;
         top: 0;
